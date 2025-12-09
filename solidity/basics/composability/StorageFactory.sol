@@ -13,7 +13,6 @@ contract StorageFactory {
     // Function To deploy a new simplestorage contract
     function createSimpleStorage() public {
         // Deploys a new SimpleStorage contract and saves its address in 'simpleStorage'
-        simpleStorage = new SimpleStorage();
-        
+        simpleStorage = new SimpleStorage();    
     }
 }
