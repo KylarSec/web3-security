@@ -5,14 +5,15 @@ pragma solidity ^0.8.18;
 import {SimpleStorage} from "./SimpleStorage.sol";
 
 contract StorageFactory {
-
-    // State variable to store the deployed SimpleStorage contract 
-    // Left side is contract type and right side is the variable 
-    SimpleStorage public simpleStorage;
+    
+    // A list to Store deployed SimpleStorage Contracts
+    SimpleStorage[] public ListOfSimpleStorageConracts;
 
     // Function To deploy a new simplestorage contract
     function createSimpleStorage() public {
-        // Deploys a new SimpleStorage contract and saves its address in 'simpleStorage'
-        simpleStorage = new SimpleStorage();    
+        // Deploy a new SimpleStorage contract and save its address temporarily in 'newSimpleStorageContract'
+        SimpleStorage newSimpleStorageContract = new SimpleStorage();
+        // Push the new contract into the list to store it permanently
+        ListOfSimpleStorageConracts.push(newSimpleStorageContract);
     }
 }
