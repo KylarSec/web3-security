@@ -1,0 +1,33 @@
+# Ignore build artifacts
+artifacts/
+build/
+cache/
+out/
+node_modules/
+
+# Ignore temporary files
+*.sol.json
+*.metadata.json
+*.dbg.json
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore logs
+*.log
+
+# Ignore editor files
+.vscode/
+.idea/
+
+# Ignore compiled contracts from tools
+foundry-out/
+hardhat-cache/
+typechain/
+coverage/
+
+# Ignore priitier file
+.prettierrc.json
+
+state.json
