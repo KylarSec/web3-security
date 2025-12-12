@@ -31,3 +31,6 @@ coverage/
 .prettierrc.json
 
 state.json
+
+#Ignore Private Folder
+./Private
