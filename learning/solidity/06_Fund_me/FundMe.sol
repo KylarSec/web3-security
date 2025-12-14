@@ -40,11 +40,16 @@ contract FundMe {
 
     // Withdraw ETH (to be implemented later)
     function withdraw() public {}
-
-    // Get latest ETH/USD price from Chainlink
-    function getPrice() public view returns (int256) {
+        
+    /**
+     * The function reads the ETH/USD price from Chainlink, scales it to 18 decimals,
+     * and returns it so it can be safely used in ETH calculations.
+     */
+    function getPrice() public view returns (uint256) {
         (, int256 answer, , , ) = dataFeed.latestRoundData();
-        return answer;
+
+        // Convert price from 8 decimals to 18 decimals
+        return uint(answer) * 1e10 ;
     }
 
     // Check price feed version
