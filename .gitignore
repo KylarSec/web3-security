@@ -34,3 +34,6 @@ state.json
 
 #Ignore Private Folder
 ./Private
+
+# Ignore npm files
+.deps/
