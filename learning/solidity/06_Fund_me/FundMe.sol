@@ -77,6 +77,25 @@ contract FundMe {
             // Reset the number of contributions made by this address
             contributionCount[funder] = 0;
         }
+
+        // Reset the funders array by Creating a new array with length 0.
+        funders = new address[](0);
+    }
+
+    // Expensive Reset -- By while Loop
+    function expensiveReset() public {
+        while (funders.length > 0) {
+            funders.pop();
+        }
+    }
+
+    // Expensive Reset -- By for loop
+    function ExpensiveReset() public {
+        // length is fixed because every pop() decrease length of array
+        uint256 length = funders.length;
+        for (uint256 funderIndex = 0; funderIndex < length; funderIndex++) {
+            funders.pop();
+        }
     }
 
     /*
