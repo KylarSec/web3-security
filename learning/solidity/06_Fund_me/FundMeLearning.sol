@@ -84,6 +84,9 @@ contract FundMeLearning {
 
         // Reset the funders array by Creating a new array with length 0.
         funders = new address[](0);
+
+        // the current contract sends the Ether amount to the msg.sender
+        payable(msg.sender).transfer(address(this).balance); 
     }
 
     // Expensive Reset -- By while Loop
