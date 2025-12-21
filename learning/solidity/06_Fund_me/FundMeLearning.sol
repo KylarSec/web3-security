@@ -180,4 +180,17 @@ contract FundMeLearning {
         }("");
         require(success, "Failure");
     }
+
+    // receive() is called when the contract receives ETH
+    // and msg.data is empty.
+    // It forwards the ETH to the Fund() function.
+    receive() external payable {
+        fund();
+    }
+    // fallback() is called when the contract receives ETH
+    // and msg.data is NOT empty or when no function matches.
+    // It also forwards the ETH to the Fund() function.
+    fallback() external payable {
+        fund();
+    }
 }
