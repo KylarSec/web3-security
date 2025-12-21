@@ -33,7 +33,7 @@ coverage/
 state.json
 
 #Ignore Private Folder
-./Private
+Private/
 
 # Ignore npm files
 .deps/
