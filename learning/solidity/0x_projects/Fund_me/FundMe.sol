@@ -101,4 +101,16 @@ contract FundMe {
         require(success, "Call Failed");
     }
 
+    // receive() is called when the contract receives ETH
+    // and msg.data is empty.
+    // It forwards the ETH to the Fund() function.
+    receive() external payable {
+        Fund();
+    }
+    // fallback() is called when the contract receives ETH
+    // and msg.data is NOT empty or when no function matches.
+    // It also forwards the ETH to the Fund() function.
+    fallback() external payable {
+        Fund();
+    }
 }
