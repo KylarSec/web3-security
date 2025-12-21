@@ -30,7 +30,7 @@ contract WithdrawTest {
         /*
          * Solidity can’t directly check if a string is empty.
          * So we:
-         * convert string → bytes
+         * convert string --> bytes
          * check length
          */
         require(bytes(_name).length > 0, "Name Required");
