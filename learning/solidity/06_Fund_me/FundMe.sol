@@ -49,7 +49,7 @@ contract FundMe {
      * - Converted to USD using the PriceConverter library
      * - Reverts if the USD value is below minimumUSD
      */
-    function Fund() external payable {
+    function Fund() public payable {
         require(
             PriceConverter.getConversionRate(msg.value) >= MINIMUM_USD,
             "Didn't Send enough ETH"
@@ -99,5 +99,18 @@ contract FundMe {
             value: address(this).balance
         }("");
         require(success, "Call Failed");
+    }
+
+    // receive() is called when the contract receives ETH
+    // and msg.data is empty.
+    // It forwards the ETH to the Fund() function.
+    receive() external payable {
+        Fund();
+    }
+    // fallback() is called when the contract receives ETH
+    // and msg.data is NOT empty or when no function matches.
+    // It also forwards the ETH to the Fund() function.
+    fallback() external payable {
+        Fund();
     }
 }
